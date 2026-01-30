@@ -2,6 +2,7 @@
 
 @layer utilities;
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=VT323&display=swap');
+@plugin 'tailwind-scrollbar-hide';
 
 body {
   font-family: 'Inter', sans-serif;

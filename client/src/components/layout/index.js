@@ -1,2 +1,6 @@
 export { default as Header } from './Header'
 export { default as BottomNav } from './BottomNav'
+export { default as Greetings } from './Home/Greetings'
+export { default as MiniCard } from './Home/MiniCard'
+export { default as RecentOrders } from './Home/RecentOrders'
+export { default as PopularDishes } from './Home/PopularDishes'
