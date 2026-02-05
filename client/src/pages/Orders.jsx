@@ -15,10 +15,10 @@ const Orders = () => {
           <h1 className="text-[#f5f5f5] text-2xl font-bold tracking-wide">Ordenes</h1>
         </div>
         <div className="flex items-center justify-around gap-4">
-          <button onClick={()=> setStatus("Todas")} className={`cursor-pointer text-[#ababab] text-lg rounded-lg px-5 py-2 font-semibold ${status === "Todas" ? "bg-[#383838]" : ""}`}>Todas</button>
-          <button onClick={()=> setStatus("En Progreso")} className={`cursor-pointer text-[#ababab] text-lg rounded-lg px-5 py-2 font-semibold ${status === "En Progreso" ? "bg-[#383838]" : ""}`}>En Progreso</button>
-          <button onClick={()=> setStatus("Listas")} className={`cursor-pointer text-[#ababab] text-lg rounded-lg px-5 py-2 font-semibold ${status === "Listas" ? "bg-[#383838]" : ""}`}>Listas</button>
-          <button onClick={()=> setStatus("Completas")} className={`cursor-pointer text-[#ababab] text-lg rounded-lg px-5 py-2 font-semibold ${status === "Completas" ? "bg-[#383838]" : ""}`}>Completas</button>
+          <button onClick={()=> setStatus("Todas")} className={`cursor-pointer text-[#ababab] text-lg rounded-lg px-5 py-2 font-semibold ${status === "Todas" ? "bg-[#383838]" : ""} hover:bg-[#343434] transition-colors duration-200`}>Todas</button>
+          <button onClick={()=> setStatus("En Progreso")} className={`cursor-pointer text-[#ababab] text-lg rounded-lg px-5 py-2 font-semibold ${status === "En Progreso" ? "bg-[#383838]" : ""} hover:bg-[#343434] transition-colors duration-200`}>En Progreso</button>
+          <button onClick={()=> setStatus("Listas")} className={`cursor-pointer text-[#ababab] text-lg rounded-lg px-5 py-2 font-semibold ${status === "Listas" ? "bg-[#383838]" : ""} hover:bg-[#343434] transition-colors duration-200`}>Listas</button>
+          <button onClick={()=> setStatus("Completas")} className={`cursor-pointer text-[#ababab] text-lg rounded-lg px-5 py-2 font-semibold ${status === "Completas" ? "bg-[#383838]" : ""} hover:bg-[#343434] transition-colors duration-200`}>Completas</button>
         </div>
       </div>
 

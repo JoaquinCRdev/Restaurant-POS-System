@@ -7,7 +7,7 @@ const PopularDishes = () => {
         <div className="bg-[#1a1a1a] w-full rounded-lg">
             <div className="flex justify-between items-center px-6 py-4">
                 <h1 className="text-[#f5f5f5] text-lg font-semibold tracking-wide">Platos Populares</h1>
-                <Link to="/orders" className="text-[#025cca] text-sm font-semibold">Ver todos los platos</Link>
+                <Link to="/orders" className="text-[#025cca] text-sm font-semibold hover:bg-[#025cca] hover:text-[#f5f5f5] transition-colors duration-200">Ver todos los platos</Link>
             </div>
 
             {/* Dishes List */}
