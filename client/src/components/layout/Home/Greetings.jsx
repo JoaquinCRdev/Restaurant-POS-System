@@ -12,9 +12,10 @@ const Greetings = () => {
   }, []);
 
   const formatDate = (date) => {
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    
-    return `${months[date.getMonth()]} ${String(date.getDate()).padStart(2, '0')}, ${date.getFullYear()}`;
+    const month = date.toLocaleString('es-ES', { month: 'long' });
+    const day = String(date.getDate()).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${month} ${day}, ${year}`;
   };
 
   const formatTime = (date) =>
