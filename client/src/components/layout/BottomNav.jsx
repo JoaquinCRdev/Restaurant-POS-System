@@ -3,10 +3,19 @@ import { MdOutlineReorder, MdTableBar } from "react-icons/md";
 import { CiCircleMore } from "react-icons/ci";
 import { BiSolidDish } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Modal } from "#pages";
 
 const BottomNav = () => {
 
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [guestCount, setGuestCount] = useState(1);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  }
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-[#262626] p-2 h-16 flex justify-around">
@@ -24,9 +33,30 @@ const BottomNav = () => {
         <CiCircleMore className="inline mr-2" size={30} /> <p>Más</p>
       </button>
 
-      <button className="absolute bottom-6 bg-[#f6b100] text-[#f5f5f5] rounded-full p-3 cursor-pointer hover:bg-[#d99a00] left-1/2 transform -translate-x-1/2 transition-colors duration-200">  
+      <button onClick={toggleModal} className="absolute bottom-6 bg-[#f6b100] text-[#f5f5f5] rounded-full p-3 cursor-pointer hover:bg-[#d99a00] left-1/2 transform -translate-x-1/2 transition-colors duration-200">  
         <BiSolidDish size={30}/>
       </button>
+
+      <Modal title="Crear orden" isOpen={isModalOpen} onClose={toggleModal}>
+        <div>
+          <label className="block text-[#ababab] mb-2 text-sm font-medium">A nombre de...</label>
+          <div className="flex items-center rounded-lg p-3 px-4 bg-[#1f1f1f]">
+            <input type="text" name="" placeholder="ingresa el nombre del cliente" id="" 
+            className="bg-transparent flex-1 text-white focus:outline-none" />
+          </div>
+        </div>
+        <div>
+          <label className="block mb-2 mt-3 text-sm font-medium text-[#ababab]">Comensales</label>
+          <div className="flex items-center justify-between bg-[#1f1f1f] px-4 py-3 rounded-lg">
+            <button className="text-yellow-500 text-2xl hover:text-yellow-700" onClick={() => setGuestCount(prev => Math.max(1, prev - 1))}>&minus;</button>
+            <span className="text-white">{guestCount} {guestCount === 1 ? "persona" : "personas"}</span>
+            <button className="text-yellow-500 text-2xl hover:text-yellow-700" onClick={() => setGuestCount(prev => prev + 1)}>&#43;</button>
+          </div>
+        </div>
+        <button onClick={()=> navigate("/tables")} className="w-full bg-[#f6b100] text-[#f5f5f5] rounded-lg py-3 mt-8 hover:bg-[#bd8a09]">
+          Crear orden
+        </button>
+      </Modal>
     </div>
   );
 };
