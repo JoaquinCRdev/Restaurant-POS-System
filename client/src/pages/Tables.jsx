@@ -24,7 +24,7 @@ const Tables = () => {
       <div className="flex flex-wrap justify-center items-start gap-6 px-16 py-4 overflow-y-scroll scrollbar-hide h-[calc(100vh-14rem)]">
         {
           tables.map((table) => (
-            <TableCard key={table.id} name={table.name} status={table.status} initials={table.initial} />
+            <TableCard key={table.id} name={table.name} status={table.status} initials={table.initial} seats={table.seats} />
           ))  
         }
       </div>

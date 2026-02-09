@@ -3,7 +3,7 @@ import logo from '/logo.png'
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center py-4 px-8 bg-[#1a1a1a]">
+    <header className="flex justify-between items-center py-2 px-8 bg-[#1a1a1a]">
       
       {/* Logo */}
       <div className="flex items-center gap-2">
@@ -18,7 +18,9 @@ const Header = () => {
         <input 
           type="text"
           placeholder="Buscar..."
-          className="bg-[#1f1f1f] outline-none text-[#f5f5f5]" />
+          className="bg-[#1f1f1f] outline-none text-[#f5f5f5]" 
+          name='search'
+          />
       </div>
 
       {/* Logged User Details */}
