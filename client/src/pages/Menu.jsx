@@ -1,4 +1,4 @@
-import { BottomNav, BackButton, MenuContainer } from "#components";
+import { BottomNav, BackButton, MenuContainer, CustomerInfo, CartItems, Bill } from "#components";
 import { MdRestaurantMenu } from "react-icons/md";
 
 const Menu = () => {
@@ -23,14 +23,22 @@ const Menu = () => {
           </div>
         </div>
 
-        {/* Este wrapper hace que MenuContainer ocupe el resto de la altura disponible */}
         <div className="flex-1 overflow-hidden">
           <MenuContainer />
         </div>
       </div>
 
       {/* Right Div */}
-      <div className="flex-1 bg-blue-500">
+      <div className="flex-1 bg-[#1a1a1a] mt-4 mr-3 h-195 rounded-lg pt-2">
+        <CustomerInfo />
+
+        <hr className="border-[#2a2a2a] border-t-2" />
+
+        <CartItems />
+
+        <hr className="border-[#2a2a2a] border-t-2" />
+
+        <Bill />
       </div>
 
       <BottomNav />

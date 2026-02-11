@@ -1,6 +1,7 @@
 import { GrRadialSelected } from "react-icons/gr";
 import { menus } from "#constants";
 import { useState } from "react";
+import { FaShoppingCart } from "react-icons/fa";
 
 const MenuContainer = () => {
   const [selected, setSelected] = useState(menus?.[0] ?? { items: [] });
@@ -57,15 +58,20 @@ const MenuContainer = () => {
                 key={item.id}
                 className="flex flex-col items-start justify-between p-4 rounded-lg min-h-25 cursor-pointer bg-[#2c2c2c] hover:bg-[#3a3a3a] transition-colors duration-200"
               >
-                <h1 className="text-[#f5f5f5] text-sm font-semibold">{item.name}</h1>
+                <div className="flex items-start justify-between w-full ">
+                  <h1 className="text-[#f5f5f5] text-sm font-semibold">{item.name}</h1>
+
+                  <button className="bg-[#2e4a40] text-[#02ca3a] p-1 rounded-lg "><FaShoppingCart size={15} /></button>
+                </div>
+                
 
                 <div className="flex items-center justify-between w-full">
                   <p className="text-[#f5f5f5] text-xl font-bold">${item.price}</p>
 
-                  <div className="flex items-center justify-between bg-[#1f1f1f] px-2 py-2 rounded-lg gap-2">
+                  <div className="flex items-center justify-between bg-[#1f1f1f] px-1 py-1 rounded-lg gap-2">
                     <button
                       type="button"
-                      className="text-yellow-500 text-2xl hover:text-yellow-700"
+                      className="text-yellow-500 text-xl hover:text-yellow-700"
                       onClick={() => decrement(item.id)}
                       aria-label={`restar ${item.name}`}
                     >
@@ -74,7 +80,7 @@ const MenuContainer = () => {
                     <span className="text-white">{count}</span>
                     <button
                       type="button"
-                      className="text-yellow-500 text-2xl hover:text-yellow-700"
+                      className="text-yellow-500 text-xl hover:text-yellow-700"
                       onClick={() => increment(item.id)}
                       aria-label={`sumar ${item.name}`}
                     >
