@@ -223,7 +223,7 @@ export const sanguchitos = [
     },
     {
         id: 2,
-        name: "Sanguchito de Jamón y Queso",
+        name: "Sanguchito de J&Q",
         price: 2500
     },
     {

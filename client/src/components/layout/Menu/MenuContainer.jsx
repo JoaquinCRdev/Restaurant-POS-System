@@ -61,7 +61,7 @@ const MenuContainer = () => {
                 <div className="flex items-start justify-between w-full ">
                   <h1 className="text-[#f5f5f5] text-sm font-semibold">{item.name}</h1>
 
-                  <button className="bg-[#2e4a40] text-[#02ca3a] p-1 rounded-lg "><FaShoppingCart size={15} /></button>
+                  <button className="bg-[#2e4a40] text-[#02ca3a] p-1 rounded-lg cursor-pointer"><FaShoppingCart size={15} /></button>
                 </div>
                 
 

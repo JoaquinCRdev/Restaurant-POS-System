@@ -14,6 +14,7 @@ export default defineConfig({
       '#utils': resolve(dirname(fileURLToPath(import.meta.url)), 'src/utils'),
       '#https': resolve(dirname(fileURLToPath(import.meta.url)), 'src/https'),
       '#constants': resolve(dirname(fileURLToPath(import.meta.url)), 'src/constants'),
+      '#redux': resolve(dirname(fileURLToPath(import.meta.url)), 'src/redux'),
     }
   }
 })

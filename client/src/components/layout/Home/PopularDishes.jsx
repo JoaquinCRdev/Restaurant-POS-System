@@ -11,7 +11,7 @@ const PopularDishes = () => {
             </div>
 
             {/* Dishes List */}
-            <div className="overflow-y-scroll h-115 scrollbar-hide">
+            <div className="overflow-y-scroll h-100 scrollbar-hide">
                 {
                     popularDishes.map((dish) => {
                         return (

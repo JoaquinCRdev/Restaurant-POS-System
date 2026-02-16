@@ -14,3 +14,16 @@ const colors = [
   const color = colors[Math.floor(Math.random() * colors.length)];
   return color;
 };
+
+export const getAvatarName = (name) => {
+  if (!name) return ""
+
+  return name.split(" ").map(word => word[0]).join("").toUpperCase();
+}
+
+export const formatDate = (date) => {
+  const month = date.toLocaleString('es-ES', { month: 'long' });
+  const day = String(date.getDate()).padStart(2, '0');
+  const year = date.getFullYear();
+  return `${month} ${day}, ${year}`;
+};
