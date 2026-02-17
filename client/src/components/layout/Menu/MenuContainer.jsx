@@ -2,11 +2,15 @@ import { GrRadialSelected } from "react-icons/gr";
 import { menus } from "#constants";
 import { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { addItems } from "#redux/slices/cartSlice";
+import { nanoid } from "@reduxjs/toolkit";
 
 const MenuContainer = () => {
   const [selected, setSelected] = useState(menus?.[0] ?? { items: [] });
   // ahora es un objeto { [itemId]: count }
   const [itemsCount, setItemsCount] = useState({});
+  const dispatch = useDispatch()
 
   const increment = (id) => {
     setItemsCount((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
@@ -22,6 +26,27 @@ const MenuContainer = () => {
       return { ...prev, [id]: next };
     });
   };
+
+  const handleAddToCart = (item) => {
+    const count = itemsCount[item.id] || 0;
+    if (count === 0) return;
+
+    const { name, price } = item;
+    const newObj = { 
+      id: nanoid(),                     // serializable (number)
+      name,
+      pricePerQuantity: price, 
+      quantity: count,
+      price: price * count,
+      addedAt: new Date().toISOString()   // si querés timestamp, guáralo como string
+    };
+
+    dispatch(addItems(newObj));
+
+    // resetear solo ese item al agregar
+    setItemsCount(prev => ({ ...prev, [item.id]: 0 }));
+  }
+
 
   return (
     // contenedor columna que ocupa toda la altura padre
@@ -61,7 +86,7 @@ const MenuContainer = () => {
                 <div className="flex items-start justify-between w-full ">
                   <h1 className="text-[#f5f5f5] text-sm font-semibold">{item.name}</h1>
 
-                  <button className="bg-[#2e4a40] text-[#02ca3a] p-1 rounded-lg cursor-pointer"><FaShoppingCart size={15} /></button>
+                  <button onClick={() => handleAddToCart(item)} className="bg-[#2e4a40] text-[#02ca3a] p-1 rounded-lg cursor-pointer"><FaShoppingCart size={15} /></button>
                 </div>
                 
 

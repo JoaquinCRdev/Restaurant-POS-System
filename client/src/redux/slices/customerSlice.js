@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
     orderId: "",
@@ -13,7 +13,7 @@ const customerSlice = createSlice({
     reducers : {
         setCustomer: (state, action) => {
             const { name, guests } = action.payload;
-            state.orderId = `${Date.now()}`
+            state.orderId = `${nanoid()}`
             state.customerName = name;
             state.guests = guests;
         },
