@@ -10,14 +10,18 @@ const app = express();
 const PORT = config.port
 conn();
 
+//Middleware
+app.use(express.json());
+
 //Root Endpoint
 app.get("/", (req, res)=>{
-
     // const err = createHttpError(404, "something went wrong!")
     // throw err
-
     res.json({message : "Hi from server!"})
 })
+
+// Other Endpoints
+app.use("/api/user", require("./routes/userRoute"));
 
 //Global Error Handler
 app.use(globalErrorHandler);
