@@ -3,6 +3,7 @@ const express = require("express");
 const conn = require("./config/database")
 const config = require("./config/config");
 const globalErrorHandler = require("./middlewares/globalErrorHandler");
+const cookieParser = require("cookie-parser");
 const app = express();
 
 // const createHttpError = require("http-errors")
@@ -11,7 +12,8 @@ const PORT = config.port
 conn();
 
 //Middleware
-app.use(express.json());
+app.use(express.json()); //parse incoming requests with JSON payloads
+app.use(cookieParser()); //parse cookies from incoming requests
 
 //Root Endpoint
 app.get("/", (req, res)=>{
