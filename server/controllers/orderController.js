@@ -17,7 +17,13 @@ const addOrder = async (req, res, next) => {
 const getOrderById = async (req, res, next) => {
 
     try {
-        const order = await Order.findById(req.params.id);
+
+        const { id } = req.params;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return next(createHttpError(400, "Invalid order ID"));
+        }
+
+        const order = await Order.findById(id);
         if (!order) {
             return next(createHttpError(404, "Order not found"));
         }
@@ -46,7 +52,13 @@ const updateOrder = async (req, res, next) => {
     try {
 
         const { orderStatus } = req.body;
-        const order = await Order.findByIdAndUpdate(req.params.id, {orderStatus}, { new: true });
+        const { id } = req.params;
+        
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return next(createHttpError(400, "Invalid order ID"));
+        }
+
+        const order = await Order.findByIdAndUpdate(id, {orderStatus}, { new: true });
         if (!order) {
             return next(createHttpError(404, "Order not found"));
         }
