@@ -1,5 +1,4 @@
-import { FaSearch, FaUserCircle, FaBell } from 'react-icons/fa'
-import logo from '/logo.png'
+import { FaSearch, FaUserCircle, FaBell, FaUtensils } from 'react-icons/fa'
 
 const Header = () => {
   return (
@@ -7,7 +6,7 @@ const Header = () => {
       
       {/* Logo */}
       <div className="flex items-center gap-2">
-        <img src={logo} className='h-8 w-8' alt="logo" />
+        <FaUtensils className='text-[#f5f5f5] text-2xl' size={20}/>
         <h1 className="text-lg font-semibold text-[#f5f5f5]"> Boutique del Sabor </h1>
       </div>
 
